@@ -1,8 +1,21 @@
 const defaultTotal = 0;
-
 let currentTotal = defaultTotal;
 
-let calcDescription = '';
+const add = () => {
+    currentTotal += userInput.value;
+    outputResult(currentTotal, '')
+}
 
-outputResult(currentTotal, calcDescription)
+const subtract = () => {
+    currentTotal -= num;
+}
 
+const multiply = (num) => {
+    currentTotal *= num;
+}
+
+const divide = (num) => {
+    currentTotal /= num;
+}
+
+addBtn.addEventListener( 'click', add );
