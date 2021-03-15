@@ -15,14 +15,12 @@ const getUserNumberInput = () => {
 
 //Save operations to logEntries
 const writeToLog = (logEntry) => {
-
-    switch (logEntry.operation) {
+    switch(logEntry.operation) {
         case '+': logEntry.operation = 'ADD';
         case '-': logEntry.operation = 'SUBTRACT';
         case '*': logEntry.operation = 'MULTIPLY';
         case '/': logEntry.operation = 'DIVIDE';
     }
-
     logEntries.push(logEntry);  
 }
 
@@ -40,36 +38,31 @@ const writeOutput = ( operator, initialResult, enteredNumber) => {
     writeToLog(logEntry);
 }
 
-const add = () => {
+const calculateResult = (operation) => {
     const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
-    currentResult += enteredNumber;
-    writeOutput('+', initialResult, enteredNumber);
-}
-
-const subtract = () => {
-    const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult -= enteredNumber;
-    writeOutput('-', initialResult, enteredNumber);
-}
-
-const multiply = () => {
-    const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult *= enteredNumber;
-    writeOutput('*', initialResult, enteredNumber);
-}
-
-const divide = () => {
-    const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult /= enteredNumber;
-    writeOutput('/', initialResult, enteredNumber);
+    switch(operation) {
+        case '+':
+            currentResult += enteredNumber;
+            break;
+        case '-':
+            currentResult -= enteredNumber;
+            break;
+        case '*':
+            currentResult *= enteredNumber;
+            break;
+        case '/':
+            currentResult /= enteredNumber;
+            break;
+        default: 
+            alert('Invalid math operation input.');
+            return; //break out of the function on error
+    }
+    writeOutput(operation, initialResult, enteredNumber);
 }
 
 //buttons are defined in vendor.js
-addBtn.addEventListener('click', add);
-subtractBtn.addEventListener('click', subtract);
-multiplyBtn.addEventListener('click', multiply);
-divideBtn.addEventListener('click', divide);
+addBtn.addEventListener('click', () => calculateResult('+'));
+subtractBtn.addEventListener('click', () => calculateResult('-'));
+multiplyBtn.addEventListener('click', () => calculateResult('*'));
+divideBtn.addEventListener('click', () => calculateResult('/'));
