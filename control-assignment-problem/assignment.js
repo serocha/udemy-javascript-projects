@@ -19,8 +19,8 @@ for (i = 0; i < 10; i++) {
     myArr.push( Math.round( Math.random() * 100 ) );
 }
 
-for (el in myArr) {
-    console.log('FIRST LOOP: ' + myArr[el]);
+for (el of myArr) {
+    console.log('FIRST LOOP: ' + el);
 }
 
 for (i = 0; i < myArr.length; i++) {
