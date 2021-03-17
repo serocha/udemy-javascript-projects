@@ -29,7 +29,7 @@ while (promptCheck) {
     } else {
         promptCheck = false;
     }
-}
+};
 
 // Initialize health bars.
 let maxLife = parseInt(enteredValue);
@@ -72,27 +72,27 @@ const writeToLog = (event, val) => {
     if (battleLog.length > BATTLELOG_SIZE) {
         battleLog.shift();
     }
-}
+};
 
 const reset = () => {
     currentMonsterHealth = maxLife;
     currentPlayerHealth = maxLife;
     resetGame(maxLife);
     battleLog = [];
-}
+};
 
 const playerAttack = (atkValue) => {
     const damage = dealMonsterDamage(atkValue);
     currentMonsterHealth -= damage;
     atkValue === ATTACK_VALUE ? writeToLog(PC_ATK, damage) : writeToLog(PC_STRONG_ATK, damage);
 
-}
+};
 
 const monsterAttack = () => {
     const playerDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE);
     currentPlayerHealth -= playerDamage;
     writeToLog(MONSTER_ATK, playerDamage);
-}
+};
 
 const endRound = (actionType) => {
     const initialPlayerHealth = currentPlayerHealth;
@@ -124,17 +124,17 @@ const endRound = (actionType) => {
         }
         reset();
     }
-}
+};
 
 const attackHandler = () => {
     playerAttack(ATTACK_VALUE);
     endRound();
-}
+};
 
 const strongAttackHandler = () => {
     playerAttack(STRONG_ATTACK_VALUE);
     endRound();
-}
+};
 
 const healPlayerHandler = () => {
 
@@ -151,13 +151,13 @@ const healPlayerHandler = () => {
         writeToLog(PC_HEAL, HEAL_VALUE);
     }
     endRound();
-}
+};
 
 const printLogHandler = () => {
     for (const el of battleLog) {
         console.log(el);
     }
-}
+};
 
 attackBtn.addEventListener('click', attackHandler);
 strongAttackBtn.addEventListener('click', strongAttackHandler);

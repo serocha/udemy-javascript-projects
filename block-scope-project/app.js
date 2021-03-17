@@ -1,7 +1,7 @@
 // Quick project to showcase differences in variable scope (block scope in JS)
 // TLDR var is outdated, use let and const to force yourself to write better/cleaner code
 
-'use strict';
+/* 'use strict';
 
 let name = 'Shane';
 let hobbies;
@@ -21,5 +21,16 @@ const greet = () => {
     let name = 'Manuel';
     console.log(name, age, hobbies);
 }
+
+greet(); */
+
+const getName = () => {
+  return prompt('Enter your name: ', '');
+};
+
+const greet = () => {
+  const userName = getName();
+  console.log('Hello ' + userName);
+};
 
 greet();

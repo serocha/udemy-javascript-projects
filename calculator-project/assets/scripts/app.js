@@ -11,7 +11,7 @@ let logEntries = [];
 //Takes the number string from the userInput field
 const getUserNumberInput = () => {
     return parseInt(userInput.value);
-}
+};
 
 //Save operations to logEntries
 const writeToLog = (logEntry) => {
@@ -22,7 +22,7 @@ const writeToLog = (logEntry) => {
         case '/': logEntry.operation = 'DIVIDE';
     }
     logEntries.push(logEntry);  
-}
+};
 
 //Prints string of current operation
 const writeOutput = ( operator, initialResult, enteredNumber) => {
@@ -36,7 +36,7 @@ const writeOutput = ( operator, initialResult, enteredNumber) => {
         result: currentResult
     };
     writeToLog(logEntry);
-}
+};
 
 const calculateResult = (operation) => {
     const enteredNumber = getUserNumberInput();
@@ -59,7 +59,7 @@ const calculateResult = (operation) => {
             return; //break out of the function on error
     }
     writeOutput(operation, initialResult, enteredNumber);
-}
+};
 
 //buttons are defined in vendor.js
 addBtn.addEventListener('click', () => calculateResult('+'));

@@ -3,7 +3,7 @@ const generateRandom = () => {
     if (randomNumber > 0.7) {
         alert('The alert is triggered!');
     }
-}
+};
 
 const generateTwoRandom = () => {
     const firstRandom = Math.random();
@@ -12,7 +12,7 @@ const generateTwoRandom = () => {
         alert('The second alert has triggered!');
         console.log('First Num: ' + firstRandom, 'Second Num: ' + secondRandom);
     }
-}
+};
 
 let myArr = [];
 for (i = 0; i < 10; i++) {

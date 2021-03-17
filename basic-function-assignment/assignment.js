@@ -19,4 +19,4 @@ task3Element.addEventListener('click', () => helloName('Balbo'));
 
 let stringValue = stringTogether('And another', 'one bites', 'the dust.');
 
-alert(stringValue)
+alert(stringValue);
