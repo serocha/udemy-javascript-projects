@@ -38,7 +38,7 @@ const writeOutput = ( operator, initialResult, enteredNumber) => {
     writeToLog(logEntry);
 };
 
-const calculateResult = (operation) => {
+const calculateResult = operation => {
     const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
     switch(operation) {
@@ -62,7 +62,7 @@ const calculateResult = (operation) => {
 };
 
 //buttons are defined in vendor.js
-addBtn.addEventListener('click', () => calculateResult('+'));
-subtractBtn.addEventListener('click', () => calculateResult('-'));
+addBtn.addEventListener('click', calculateResult.bind(this, '+')); //just to showcase bind()
+subtractBtn.addEventListener('click', () => calculateResult('-')); //standard anonymous function
 multiplyBtn.addEventListener('click', () => calculateResult('*'));
 divideBtn.addEventListener('click', () => calculateResult('/'));
