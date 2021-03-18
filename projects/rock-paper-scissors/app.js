@@ -56,8 +56,16 @@ startGameBtn.addEventListener('click', startGame = () => {
     console.log('Game is starting...');
     const playerChoice = getPlayerChoice();
     const computerChoice = getComputerChoice();
-    console.log('You chose ' + playerChoice);
-    console.log('The computer chose ' + computerChoice);
     const winner = getWinner(computerChoice, playerChoice)
-    console.log(winner);
+    let message = `You picked ${playerChoice} and the computer picked ${computerChoice}.`;
+    if (winner === RESULT_DRAW) {
+        message = message + ` It's a draw!`;
+    } else if (winner === RESULT_WIN) {
+        message = message + ' You won!';
+    } else {
+        message = message + ' The computer wins!';
+    }
+
+    alert(message);
+    gameIsRunning = false;
 }); // Consider giving anonymous functions a name to make debugging a bit easier
