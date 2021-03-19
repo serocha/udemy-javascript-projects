@@ -25,3 +25,27 @@ console.dir(liveAllList); // HTMLCollection, live node - adding a new element to
 for (const listEl of liveAllList) {
     console.dir(listEl);
 }
+
+// Consider a case where you don't know the list info, but want to select the second element
+const ul = document.querySelector('ul'); // can also select by looking at parents from a child element
+ul.children[1].textContent = 'Change the second element';
+
+// Or go looking for an ancestor that matches a CSS selector
+const li = document.querySelector('li');
+console.dir(li.closest('body'));
+
+// Modify stylings
+const section = document.querySelector('section');
+//section.className = '';
+
+const toggle = document.querySelector('#button-1');
+const changeHTML = document.querySelector('#button-2');
+
+toggle.addEventListener('click', () => {
+    section.classList.toggle('visible');
+    section.classList.toggle('invisible');
+})
+
+changeHTML.addEventListener('click', () => {
+    section.innerHTML = '<h3> Replaced with a new title! </h3>'
+})
