@@ -46,6 +46,16 @@ toggle.addEventListener('click', () => {
     section.classList.toggle('invisible');
 })
 
+/* changeHTML.addEventListener('click', () => {
+    section.innerHTML = '<h3> Replaced with a new title! </h3>';
+}) */
+
+// add a new element
+const newLi = document.createElement('li');
+    newLi.textContent = 'Item 4';
 changeHTML.addEventListener('click', () => {
-    section.innerHTML = '<h3> Replaced with a new title! </h3>'
-})
+    ul.appendChild(newLi);
+    ul.prepend(newLi); // see how it moves the existing element around rather than duplicating
+}) // rather than before or after to insert, consider insertAdjacentElement instead; better browser support
+
+//consider using cloneNode() as well when you may need to reuse the majority or totality of an element
